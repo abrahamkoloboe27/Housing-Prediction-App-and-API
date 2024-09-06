@@ -42,4 +42,4 @@ jobs:
     #     tags: zach27/github_actions:fastapi
 
     - name: Run Docker Compose
-      run: docker-compose up -d
+      run: docker-compose up  --build  -d
