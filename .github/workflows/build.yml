@@ -25,9 +25,15 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@v2
       with:
-        context: .
+        context: ./app
         push: true
-        tags: user/repository:latest
+        tags: zach27/github_actions:streamlit
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v2
+      with:
+        context: ./api
+        push: true
+        tags: zach27/github_actions:fastapi
 
     - name: Run Docker Compose
       run: docker-compose up -d
