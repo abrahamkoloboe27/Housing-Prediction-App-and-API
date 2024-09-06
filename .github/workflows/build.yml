@@ -16,27 +16,27 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+    # - name: Login to DockerHub
+    #   uses: docker/login-action@v1
+    #   with:
+    #     username: ${{ secrets.DOCKER_USERNAME }}
+    #     password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Docker images for app
-      uses: docker/build-push-action@v2
-      with:
-        context: ./app
-        file: ./app/Dockerfile  # Correction ici
-        push: true
-        tags: zach27/github_actions:streamlit
+    # - name: Build and push Docker images for app
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: ./app
+    #     file: ./app/Dockerfile  # Correction ici
+    #     push: true
+    #     tags: zach27/github_actions:streamlit
 
-    - name: Build and push Docker images for api
-      uses: docker/build-push-action@v2
-      with:
-        context: ./api
-        file: ./api/Dockerfile  # Correction ici
-        push: true
-        tags: zach27/github_actions:fastapi
+    # - name: Build and push Docker images for api
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: ./api
+    #     file: ./api/Dockerfile  # Correction ici
+    #     push: true
+    #     tags: zach27/github_actions:fastapi
 
     - name: Run Docker Compose
       run: docker-compose up -d
