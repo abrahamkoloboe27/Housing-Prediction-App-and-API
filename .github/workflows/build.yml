@@ -20,8 +20,7 @@ jobs:
       with:
         compose-file: "./docker/docker-compose.yml"
     - name: Execute tests in the running services
-      run: |
-        docker-compose up  --build -d 
+      run: docker-compose up  --build -d 
     # - name: Login to DockerHub
     #   uses: docker/login-action@v1
     #   with:
